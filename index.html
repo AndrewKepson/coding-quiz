@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="styles.css">
-    <script type="text/javascript" src="logic.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Quiz</title>
 </head>
+
 <body>
-    
+    <nav class="navbar">
+        <!-- High Scores Link and Timer -->
+        <a class="nav-link" href="#">View High Scores</a>
+        <div id="timer"></div>
+    </nav>
+
+    <!-- Main Content Where Quiz Will Display -->
+    <section class="container">
+        <h1>Test Your Knowledge of Coding Fundamentals!</h1>
+            <main id="main">
+                <div id="start">Start the Quiz</div>
+                <section class="quiz" style="display: none;">
+                <row>
+                    <card class="questions">
+                        <!-- Place to call question and answer content in script. -->
+                    </card>
+                </row>
+                </section>
+            </main>
+    </section>
+    <script type="text/javascript" src="logic.js"></script>
 </body>
+
 </html>
