@@ -1,6 +1,6 @@
 var secondsLeft = 60;
 var startQuiz = document.querySelector("#start");
-var myQuestions = [
+var questions = [
 	{
 		question: "Commonly Used Data Types Do NOT Include:",
 		answers: ["Strings", "Booleans", "Alerts", "Numbers"], 
@@ -9,22 +9,22 @@ var myQuestions = [
 	{
 		question: "The conditions of an IF/ELSE statement are inclosed within:",
 		answers: ["Quotes", "Curly Brackets", "Parentheses", "Square Brackets"], 
-		correctAnswer: "Curly Brackets",
+		correct: "Curly Brackets",
 	},
 	{
 		question: "Arrays in JavaScript can be used to store _________.",
-		answers: = ["Numbers and Strings", "Other Arrays", "Booleans", "All of the Above"], 
-		correctAnswer: "All of the Above"
-    }
+		answers:  ["Numbers and Strings", "Other Arrays", "Booleans", "All of the Above"], 
+		correct: "All of the Above",
+    },
     {
         question: "String values must be enclosed within ______ when being assigned to variables.",
-        answers: = ["Commas", "Curly Brackets", "Quotes", "Parentheses"],
-        correctAnswer: "Quotes",
+        answers: ["Commas", "Curly Brackets", "Quotes", "Parentheses"],
+        correct: "Quotes",
     },
     {
         question: "A very useful tool used during development and debugging for printing content to the debugger is:",
-        answers: = ["JavaScript", "terminal/bash", "for loops", "console.log()"],
-        correctAnswer: "console.log()",
+        answers: ["JavaScript", "terminal/bash", "for loops", "console.log()"],
+        correct: "console.log()",
     },
 ];
 var score=0; //Should be stored in local storage. High scores will need to be retrieved from local storage. Use JSON.stingify and JSON.parse 
@@ -34,10 +34,10 @@ var interval;
 function generateQuestion() {
     document.querySelector(".questions").innerHTML = "";
     startQuiz.setAttribute("style","display:none");
-    document.querySelector(".quiz").setAttribute("style","display:block");
+    document.querySelector(".quiz").setAttribute("style","display:block;");
     var q = questions[j].question;
     var questionEl = document.createElement("h2");
-    var ans = question[j].answers;
+    var ans = questions[j].answers;
     questionEl.textContent = q;
     document.querySelector(".questions").appendChild(questionEl);
 
@@ -52,17 +52,21 @@ function generateQuestion() {
 function checkAnswer (event) {
     console.log("check");
     if(questions[j].correct !== event.target.textContent) {
-
+        console.log("correct");
+        secondsLeft -=5;
+    } else {
+        alert("correct");
     }
     if (j < questions.length) {j++;
-    renderQuestion();
+    generateQuestion();
 }
 else endGame();
 }
 
 function endGame() {
     clearInterval;
-    document.querySelector(".results").setAttribute("style","display: block");
+    document.querySelector(".results").setAttribute("style","display:block");
+    localStorage.getItem();
 }
 
 function counter() {
@@ -81,13 +85,12 @@ function counter() {
 }
 
 //Commit the scores to local storage so that they can be used in High scores
-function storeScores() {
-    localStorage.setItem("score", secondsLeft);
+function storeScores () {
+    localStorage.setItem("score", secondsLeft)
 }
 
 //Call scores from local storage to retrieve high scores
 
 //Add event listener to start button
-
-startQuiz.addEventListener("click", renderQuestion);
+startQuiz.addEventListener("click", generateQuestion);
 startQuiz.addEventListener("click", counter);
