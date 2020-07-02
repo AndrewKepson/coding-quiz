@@ -60,12 +60,11 @@ function checkAnswer(event) {
 		score++;
 		j++;
 	}
-	if (j <= questions.length) {
+	if (j < questions.length-1) {
 		j++;
 		generateQuestion();
 	} else {
 		endGame();
-		console.log('hello');
 	}
 }
 
