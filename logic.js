@@ -55,14 +55,14 @@ function checkAnswer(event) {
 	if (questions[j].correct !== event.target.textContent) {
 		console.log('incorrect');
 		secondsLeft -= 5;
-	//Else alert correct and increase the score and index
+		//Else alert correct and increase the score and index
 	} else {
 		alert('correct');
 		score++;
 		j++;
 	}
 	//Ensures that the game continues if there are questions left in the array, else triggers the endGame function
-	if (j < questions.length-1) {
+	if (j < questions.length - 1) {
 		j++;
 		generateQuestion();
 	} else {
@@ -122,7 +122,6 @@ function displayScores() {
 	});
 }
 //Call scores from local storage to retrieve high scores
-
 //Event listener to start button to begin question function and start counter
 startQuiz.addEventListener('click', generateQuestion);
 startQuiz.addEventListener('click', counter);

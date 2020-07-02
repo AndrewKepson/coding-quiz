@@ -11,7 +11,7 @@
 <body>
     <nav class="navbar">
         <!-- High Scores Link and Timer -->
-        <a class="nav-link" href="#">View High Scores</a>
+        <a class="nav-link" href="#" id="scores-link">View High Scores</a>
         <div id="timer"></div>
     </nav>
 
@@ -19,7 +19,7 @@
     <section class="container">
         <h1>Test Your Knowledge of Coding Fundamentals!</h1>
             <main id="main">
-                <div id="start">Start the Quiz</div>
+                <div id="start"><p>Start the Quiz</p></div>
                 <section class="quiz" style="display: none;">
                 <row>
                     <card class="questions">
@@ -27,9 +27,12 @@
                     </card>
                 </row>
                 </section>
+                <!-- Results Display Card is hidden by default and called in the displayScores function-->
                 <section class="hide" id="results">
                 <p id="final-message"></p>
+                <!-- Name input for hiscores -->
                 <input type="text" id="score-name" placeholder="Your Name">
+                <!-- Submit button -->
                 <button type="submit" id="submit-button">Add to High Scores</button>
                 </section>
                 <section class="" id="high-scores"></section>
